@@ -9,6 +9,8 @@ pygame.display.set_caption("Fly Killer")
 icon = pygame.image.load("img/flykiller.png")
 pygame.display.set_icon(icon)
 
+background_color = (144, 238, 144)
+
 target_img = pygame.image.load("img/flykiller_target.png")
 targer_width = 50
 targer_height = 50
