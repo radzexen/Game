@@ -2,14 +2,14 @@ import pygame
 import random
 pygame.init()
 
-SCREEN_WIDTH = 800
-SCREEN_HEIGHT = 600
+SCREEN_WIDTH = 1536
+SCREEN_HEIGHT = 1024
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Fly Killer")
 icon = pygame.image.load("img/flykiller.png")
 pygame.display.set_icon(icon)
 
-background_color = (144, 238, 144)
+background_img = pygame.image.load("img/flykiller_background.png")
 
 target_img = pygame.image.load("img/flykiller_target.png")
 targer_width = 50
