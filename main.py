@@ -11,9 +11,9 @@ pygame.display.set_caption("Fly Killer")
 
 # -------- ПАРАМЕТРЫ ИГРЫ --------
 ROUND_TIME_MS = 30_000   # длительность раунда (мс)
-MOVE_INTERVAL_MS = 2_000 # как часто муха меняет позицию
-TARGET_SIZE = (50, 50)
-SWATTER_SIZE = (80, 80)
+MOVE_INTERVAL_MS = 1_000 # как часто муха меняет позицию
+TARGET_SIZE = (40, 40)
+SWATTER_SIZE = (50, 80)
 
 # -------- ПУТИ --------
 HIGHSCORE_FILE = "highscore.txt"
@@ -116,11 +116,6 @@ def draw_hud(ms_left, best_score):
     timer_text = font_timer.render(f"Time: {seconds_left}", True, (255, 255, 255))
     timer_rect = timer_text.get_rect(topright=(SCREEN_WIDTH - 20, 20))
     screen.blit(timer_text, timer_rect)
-
-    font_hs = pygame.font.SysFont(None, 48)
-    hs_text = font_hs.render(f"High: {best_score}", True, (255, 255, 255))
-    hs_rect = hs_text.get_rect(topleft=(20, 20))
-    screen.blit(hs_text, hs_rect)
 
 running = True
 while running:
