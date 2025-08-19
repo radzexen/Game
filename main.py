@@ -9,16 +9,13 @@ SCREEN_HEIGHT = 600
 screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
 pygame.display.set_caption("Fly Killer")
 
-# -------- ПАРАМЕТРЫ ИГРЫ --------
-ROUND_TIME_MS = 30_000   # длительность раунда (мс)
+ROUND_TIME_MS = 30_000   # длительность раунда
 MOVE_INTERVAL_MS = 1_000 # как часто муха меняет позицию
 TARGET_SIZE = (40, 40)
 SWATTER_SIZE = (50, 80)
 
-# -------- ПУТИ --------
 HIGHSCORE_FILE = "highscore.txt"
 
-# -------- УТИЛИТЫ ХАЙСКОРА --------
 def load_highscore(path=HIGHSCORE_FILE):
     try:
         if os.path.exists(path):
@@ -37,7 +34,6 @@ def save_highscore(score, path=HIGHSCORE_FILE):
 
 highscore = load_highscore()
 
-# -------- РЕСУРСЫ --------
 icon = pygame.image.load("img/icon.png")
 pygame.display.set_icon(icon)
 
@@ -128,14 +124,14 @@ while running:
         if time_left <= 0:
             game_over = True
             pygame.time.set_timer(MOVE_FLY, 0)
-            # Обновляем хайскор
+
             if score > highscore:
                 highscore = score
                 save_highscore(highscore)
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            # Перед выходом тоже сохраним, если что
+
             if score > highscore:
                 highscore = score
                 save_highscore(highscore)
@@ -154,7 +150,7 @@ while running:
         else:  # экран финиша
             if event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 if restart_rect.collidepoint(event.pos):
-                    # Сброс игры — хайскор остаётся
+
                     score = 0
                     show_hit = False
                     game_over = False
